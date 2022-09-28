@@ -43,7 +43,7 @@ var BaseEnvironment = []struct {
 	Value string
 }{
 	{"DEBIAN_FRONTEND", "noninteractive"},
-	{"PATH", "/usr/bin:" + DefaultPathEnvUnix},
+	{"PATH", DefaultPathEnvUnix},
 	{"LANG", "C.UTF-8"},
 	{"LC_ALL", "C.UTF-8"},
 }
@@ -69,6 +69,7 @@ var BaseAptPackage = []string{
 	"tini",
 	"sudo",
 	"vim",
+	"zsh",
 }
 
 type EnvdImage struct {

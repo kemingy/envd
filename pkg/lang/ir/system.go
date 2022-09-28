@@ -99,6 +99,7 @@ func (g *Graph) compileCUDAPackages(org string) llb.State {
 
 func (g Graph) compileSystemPackages(root llb.State) llb.State {
 	if len(g.SystemPackages) == 0 {
+		logrus.Debug("skip apt package step since it's empty")
 		return root
 	}
 
@@ -114,8 +115,7 @@ func (g Graph) compileSystemPackages(root llb.State) llb.State {
 	cacheLibDir := "/var/lib/apt"
 
 	run := root.Run(llb.Shlex(fmt.Sprintf("bash -c \"%s\"", sb.String())),
-		llb.WithCustomNamef("apt-get install %s",
-			strings.Join(g.SystemPackages, " ")))
+		llb.WithCustomNamef("[internal] apt-get install %s", strings.Join(g.SystemPackages, " ")))
 	run.AddMount(cacheDir, llb.Scratch(),
 		llb.AsPersistentCacheDir(g.CacheID(cacheDir), llb.CacheMountShared))
 	run.AddMount(cacheLibDir, llb.Scratch(),

@@ -92,12 +92,12 @@ func (g Graph) compilePython(aptStage llb.State) (llb.State, error) {
 		merged = llb.Merge([]llb.State{
 			builtinSystemStage, systemStage, condaStage,
 			diffSSHStage, pypiStage, *vscodeStage,
-		}, llb.WithCustomName("merging all components into one"))
+		}, llb.WithCustomName("[internal] merging all components into one"))
 	} else {
 		merged = llb.Merge([]llb.State{
 			builtinSystemStage, systemStage, condaStage,
 			diffSSHStage, pypiStage,
-		}, llb.WithCustomName("merging all components into one"))
+		}, llb.WithCustomName("[internal] merging all components into one"))
 	}
 	merged = g.compileAlternative(merged)
 	return merged, nil
