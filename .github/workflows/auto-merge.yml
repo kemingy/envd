@@ -28,7 +28,7 @@ jobs:
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
   changelog:
     runs-on: ubuntu-latest
-    if:${{ (github.repository == 'tensorchord/envd') && (github.actor == 'github-actions[bot]') }}
+    if: ${{ (github.repository == 'tensorchord/envd') && (github.actor == 'github-actions[bot]') }}
     steps:
       - name: Approve PR
         run: gh pr review --approve "$PR_URL"
