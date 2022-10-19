@@ -74,7 +74,13 @@ var BaseAptPackage = []string{
 	"sudo",
 	"vim",
 	"zsh",
+	// s6
+	"xz-utils",
 }
+
+const S6OverlayVersion = "3.1.2.1"
+var S6OverlayNoArchURL = fmt.Sprintf("https://github.com/just-containers/s6-overlay/releases/download/%s/s6-overlay-noarch.tar.xz", S6OverlayVersion)
+var S6OverlayX86_64URL = fmt.Sprintf("https://github.com/just-containers/s6-overlay/releases/download/%s/s6-overlay-x86_64.tar.xz", S6OverlayVersion)
 
 type EnvdImage struct {
 	types.ImageSummary

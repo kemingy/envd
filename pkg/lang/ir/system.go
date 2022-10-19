@@ -165,6 +165,17 @@ func (g *Graph) preparePythonBase(root llb.State) llb.State {
 	return run.Root()
 }
 
+func (g Graph) compileS6Overlay(root llb.State) llb.State {
+	var sb strings.Builder
+	sb.WriteString("set -euo pipefail\n")
+	sb.WriteString(fmt.Sprintf("wget %s -O /tmp/s6.tar.xz\n", types.S6OverlayNoArchURL))
+	sb.WriteString("tar -C / -Jxpf /tmp/s6.tar.xz\n")
+	sb.WriteString(fmt.Sprintf("wget %s -O /tmp/s6_x86_64.tar.xz\n", types.S6OverlayX86_64URL))
+	sb.WriteString("tar -C / -Jxpf /tmp/s6_x86_64.tar.xz\n")
+	s6 := root.Run(llb.Shlex(sb.String()), llb.WithCustomName("[internal] install s6 overlay"))
+	return s6.Root()
+}
+
 func (g Graph) compileSshd(root llb.State) llb.State {
 	sshd := root.File(llb.Copy(
 		llb.Image(types.EnvdSshdImage), "/usr/bin/envd-sshd", "/var/envd/bin/envd-sshd",
@@ -219,7 +230,8 @@ func (g *Graph) compileBase() (llb.State, error) {
 	if err != nil {
 		return llb.State{}, errors.Wrap(err, "failed to install conda")
 	}
-	return g.compileSshd(condaStage), nil
+	s6 := g.compileS6Overlay(condaStage)
+	return g.compileSshd(s6), nil
 }
 
 func (g Graph) copySSHKey(root llb.State) (llb.State, error) {
