@@ -17,6 +17,7 @@ on:
       - '**.py'
       - '**.ipynb'
       - 'Makefile'
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -28,6 +29,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
       - uses: actions/setup-python@v4
         with:
           python-version: 3.8
