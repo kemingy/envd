@@ -104,6 +104,8 @@ jobs:
           go-version: 'stable'
       - uses: actions-ecosystem/action-get-latest-tag@v1
         id: get-latest-tag
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
       - name: e2e test
         run: make e2e-cli-test
         env:
@@ -162,8 +164,6 @@ jobs:
           go-version: 'stable'
       - name: Build
         run: make
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
 
   # notifies that all test jobs are finished.
   report:
