@@ -15,8 +15,8 @@ require (
 	github.com/containerd/log v0.1.0
 	github.com/containers/image/v5 v5.36.2
 	github.com/creack/pty v1.1.24
-	github.com/docker/cli v28.4.0+incompatible
-	github.com/docker/docker v28.4.0+incompatible
+	github.com/docker/cli v28.5.1+incompatible
+	github.com/docker/docker v28.5.1+incompatible
 	github.com/docker/go-connections v0.6.0
 	github.com/docker/go-units v0.5.0
 	github.com/gizak/termui/v3 v3.1.0
@@ -24,18 +24,18 @@ require (
 	github.com/go-git/go-git/v5 v5.16.0
 	github.com/golang/mock v1.6.0
 	github.com/google/uuid v1.6.0
-	github.com/hashicorp/go-getter v1.8.1
+	github.com/hashicorp/go-getter v1.8.3
 	github.com/mattn/go-isatty v0.0.20
-	github.com/moby/buildkit v0.25.0
+	github.com/moby/buildkit v0.25.1
 	github.com/moby/term v0.5.2
 	github.com/morikuni/aec v1.0.0
 	github.com/olekukonko/tablewriter v1.1.0
-	github.com/onsi/ginkgo/v2 v2.25.3
+	github.com/onsi/ginkgo/v2 v2.27.2
 	github.com/onsi/gomega v1.38.2
 	github.com/opencontainers/go-digest v1.0.0
 	github.com/opencontainers/image-spec v1.1.1
 	github.com/pkg/errors v0.9.1
-	github.com/pkg/sftp v1.13.9
+	github.com/pkg/sftp v1.13.10
 	github.com/schollz/progressbar/v3 v3.18.0
 	github.com/segmentio/analytics-go/v3 v3.3.0
 	github.com/sirupsen/logrus v1.9.3
@@ -47,10 +47,10 @@ require (
 	github.com/tonistiigi/vt100 v0.0.0-20240514184818-90bafcd6abab
 	github.com/urfave/cli/v2 v2.27.7
 	go.starlark.net v0.0.0-20250530210732-c81913c6f2e2
-	golang.org/x/crypto v0.41.0
+	golang.org/x/crypto v0.43.0
 	golang.org/x/sync v0.17.0
-	golang.org/x/term v0.34.0
-	golang.org/x/time v0.13.0
+	golang.org/x/term v0.36.0
+	golang.org/x/time v0.14.0
 )
 
 require (
@@ -151,7 +151,6 @@ require (
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.26.3 // indirect
 	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.65 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
-	github.com/hashicorp/go-safetemp v1.0.0 // indirect
 	github.com/hashicorp/go-version v1.7.0 // indirect
 	github.com/hashicorp/golang-lru/v2 v2.0.7 // indirect
 	github.com/in-toto/in-toto-golang v0.9.0 // indirect
@@ -237,13 +236,13 @@ require (
 	go.opentelemetry.io/otel/sdk/metric v1.36.0 // indirect
 	go.opentelemetry.io/otel/trace v1.36.0 // indirect
 	go.opentelemetry.io/proto/otlp v1.7.0 // indirect
-	go.uber.org/automaxprocs v1.6.0 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
-	golang.org/x/net v0.43.0 // indirect
+	golang.org/x/mod v0.28.0 // indirect
+	golang.org/x/net v0.45.0 // indirect
 	golang.org/x/oauth2 v0.30.0 // indirect
-	golang.org/x/sys v0.36.0 // indirect
-	golang.org/x/text v0.28.0 // indirect
-	golang.org/x/tools v0.36.0 // indirect
+	golang.org/x/sys v0.37.0 // indirect
+	golang.org/x/text v0.30.0 // indirect
+	golang.org/x/tools v0.37.0 // indirect
 	google.golang.org/api v0.235.0 // indirect
 	google.golang.org/genproto v0.0.0-20250528174236-200df99c418a // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20250528174236-200df99c418a // indirect
