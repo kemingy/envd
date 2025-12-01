@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Set up Go
@@ -48,7 +48,7 @@ jobs:
       matrix:
         os: [macos-15, ubuntu-22.04]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Get gobin
         uses: actions/download-artifact@v6
         with:
@@ -71,7 +71,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: Build wheels
-        uses: pypa/cibuildwheel@v3.2.1
+        uses: pypa/cibuildwheel@v3.3.0
         env:
           CIBW_ARCHS_MACOS: arm64, x86_64
           CIBW_ARCHS_LINUX: auto64
@@ -115,7 +115,7 @@ jobs:
     if: github.repository == 'tensorchord/envd' && startsWith(github.ref, 'refs/tags/v')
     needs: goreleaser
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
     - name: Docker Login
       uses: docker/login-action@v3
       with:
@@ -141,7 +141,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: goreleaser
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
     - name: Cache Docker layers
@@ -175,7 +175,7 @@ jobs:
             tag_suffix: "-cuda-11.8.0-cudnn-8"
     needs: goreleaser
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
     - name: Cache Docker layers
